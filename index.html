@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>splitter</h1>
+    </header>
+    <main>
+      <p class="heading">Bill</p>
+      <input id= 'bill-amount' type="text">
+      <p>select tip %</p>
+      <div class="container-buttons">
+        <div class="btn btn-5">5%</div>
+        <div class="btn btn-10">10%</div>
+        <div class="btn btn-15">15%</div>
+        <div class="btn btn-20">20%</div>
+        <div class="btn btn-25">25%</div>
+        <input type="text" placeholder="custom" class="btn-custom">
+      </div> <!--buttons-->
+      <p class="heading">Number of people</p>
+      <input id="people-amount" type="text">
+      <div class="container-result">
+        <div class="per-person-tip-result result-grp">
+          <div class="per-person-tip-text">
+            <p>Tip Amount</p>
+            <p>/ person</p>
+          </div>
+          <div>
+            <p id="per-person-tip-total"></p>
+          </div>
+        </div> <!--per-person-result-->
+        <div class="per-person-total-result result-grp">
+          <div class="per-person-total-text">
+            <p>Total</p>
+            <p>/ person</p>
+          </div>
+          <div>
+            <p id="per-person-total-amount"></p>
+          </div>
+        </div> <!--per-person-total-result-->
+        <div class="btn btn-reset">Reset</div>
+      </div> <!--container-result-->
+    </main>
+  </div>
+
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Greg Pendleton</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

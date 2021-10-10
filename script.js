@@ -15,7 +15,7 @@ let billAmount = 0
 
 function CalculateTip(){
     let tipPerPerson = tipAmount / peopleNum;
-    let totalPerPerson = (eval(billAmountInput.value) + tipPerPerson) / peopleNum;
+    let totalPerPerson = (eval(billAmountInput.value) + tipAmount) / peopleNum;
     perPersonTipP.innerText = `$${tipPerPerson}`
     perPersonTotalP.innerText = `$${totalPerPerson}`
 }

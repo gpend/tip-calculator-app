@@ -9,21 +9,25 @@ const percent25Button = document.querySelector('.btn-25')
 const percent20Button = document.querySelector('.btn-20')
 const perPersonTipP = document.getElementById('per-person-tip-total')
 const perPersonTotalP = document.getElementById('per-person-total-amount')
-let tipAmount = 0
+let tipPercent = 20
 let peopleNum = 1
 let billAmount = 0
 
 function CalculateTip(){
+    let tipDecimal = tipPercent * .01
+    let tipAmount = eval(billAmountInput.value * tipDecimal)
+    
     let tipPerPerson = tipAmount / peopleNum;
-    let totalPerPerson = (eval(billAmountInput.value) + tipAmount) / peopleNum;
+    // let totalPerPerson = (eval(billAmountInput.value) + tipAmount) / peopleNum;
+    if (isNaN((eval(billAmountInput.value) + tipAmount) / peopleNum)){
+        var totalPerPerson = 0
+    }
+    else{
+        var totalPerPerson = (eval(billAmountInput.value) + tipAmount) / peopleNum;
+    }
+
     perPersonTipP.innerText = `$${tipPerPerson}`
     perPersonTotalP.innerText = `$${totalPerPerson}`
-}
-
-function TipChange(tip){
-    let tipPercent = tip * .01
-    tipAmount = eval(billAmountInput.value * tipPercent)
-    CalculateTip()
 }
 
 function BillAmountAdded(billAmountNum){
@@ -32,20 +36,27 @@ function BillAmountAdded(billAmountNum){
 }
 
 function PeopleAdded (peopleNumInput){
-    peopleNum = peopleNumInput
+    if (peopleNumInput === ""){
+        peopleNum = 1
+    }
+    else{
+        peopleNum = peopleNumInput
+    }    
     CalculateTip()
 }
 
-percent5Button.addEventListener('click', function() {TipChange(5)})
-percent10Button.addEventListener('click', function() {TipChange(10)})
-percent15Button.addEventListener('click', function() {TipChange(15)})
-percent25Button.addEventListener('click', function() {TipChange(25)})
-percent20Button.addEventListener('click', function() {TipChange(20)})
-customPercentInput.addEventListener('keyup', function(){TipChange(customPercentInput.value)})
+percent5Button.addEventListener('click', function() {tipPercent = 5; CalculateTip()}) // TODO change to just return?? tip = 5?
+percent10Button.addEventListener('click', function() {tipPercent = 10; CalculateTip()})
+percent15Button.addEventListener('click', function() {tipPercent = 15; CalculateTip()})
+percent25Button.addEventListener('click', function() {tipPercent = 25; CalculateTip()})
+percent20Button.addEventListener('click', function() {tipPercent = 20; CalculateTip()})
+customPercentInput.addEventListener('keyup', function(){tipPercent = (customPercentInput.value); CalculateTip()})
 peopleAmountInput.addEventListener('keyup', function(){ PeopleAdded(peopleAmountInput.value)})
 billAmountInput.addEventListener('keyup', function() {BillAmountAdded(billAmountInput.value)})
 
-// recalculate on any input
-// defaults for basic calculations
+// TODO enable reset
+// TODO animate buttons
+// TODO enable big screens
 
+TipChange(20)
 CalculateTip()

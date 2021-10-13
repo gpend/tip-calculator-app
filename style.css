@@ -4,22 +4,22 @@
  /* Neutral */
     --Very-dark-cyan: hsl(183, 100%, 15%);
     --Dark-grayish-cyan: hsl(186, 14%, 43%);
-    --Dark-grayish-cyan: hsl(184, 14%, 56%);
+    --Dark-grayish-cyan2: hsl(184, 14%, 56%);
     --Light-grayish-cyan: hsl(185, 41%, 84%);
-    --Light-grayish-cyan: hsl(189, 41%, 97%);
+    --Light-grayish-cyan2: hsl(189, 41%, 97%);
 }
 
 body{
     font-family: var(--font-s);
     margin: 0;
-    background-color: var(--Strong-cyan);
+    background-color: var(--Light-grayish-cyan);
 }
 
-.container{
+
+
+.container-buttonstuff{
     display: flex;
     flex-direction: column;
-    margin:0 auto;
-    max-width: 375px;
 }
 
 .buttons{
@@ -31,6 +31,7 @@ header{
 }
 
 main{
+    max-width: 375px;
     background-color: white;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -38,6 +39,7 @@ main{
     flex-direction: column;
     justify-content: center;
     padding: 0 1rem;
+    margin:0 auto;
 }
 
 .container-result{
@@ -56,8 +58,12 @@ main input{
     margin: 0 auto;
     margin-top: .5em;
     border: none;
-    background-color: var(--Light-grayish-cyan);
-    height: 3em;
+    background-color: var(--Light-grayish-cyan2);
+    height: 2em;
+    text-align: right;
+    font-size: xx-large;
+    line-height: 0;
+    padding: 0;
 }
 
 p.heading{
@@ -92,7 +98,8 @@ p.heading{
 }
 
 .btn-reset{
-    background-color: aqua;
+    background-color: var(--Strong-cyan);
+    color: var(--Very-dark-cyan);
     width: 60%;
 }
 
@@ -102,4 +109,33 @@ p.heading{
     align-items: center;
     margin: 0 1em;
     padding: 1em 0;
+}
+
+#per-person-total-amount,
+#per-person-tip-total{
+    font-size: xx-large;
+    color: var(--Strong-cyan);
+}
+
+
+/* @media (min-width: 400px){ */
+@media (min-width: 800px){
+    .container-buttonstuff{
+        margin: 1em 1em;
+        width: 50%;
+    }
+    .container-buttons{
+        grid-template-columns: 33% 33% 33%;
+    }
+
+    .container-result{
+        margin: 1em 1em;
+        width: 50%;
+    }
+    main{
+        flex-direction: row;
+        max-width: 1440px;
+        border-radius: 15px;
+    }
+
 }

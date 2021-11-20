@@ -48,6 +48,8 @@ function PeopleAdded (peopleNumInput){
     CalculateTip()
 }
 
+// TODO #4 add function to change tip percent button highlight and add function to percent button listener
+
 percent5Button.addEventListener('click', function() {tipPercent = 5; CalculateTip()})
 percent10Button.addEventListener('click', function() {tipPercent = 10; CalculateTip()})
 percent15Button.addEventListener('click', function() {tipPercent = 15; CalculateTip()})
@@ -60,13 +62,12 @@ resetButton.addEventListener('click', function() {  tipPercent = 20;
                                                     billAmountInput.value = ""
                                                     billAmount = 0; 
                                                     peopleAmountInput.value = ""
-                                                    peopleNum = 1; 
+                                                    peopleNum = 1;
+                                                    customPercentInput.value =""
                                                     CalculateTip()
                                                 }
                             )
 
 // TODO animate buttons
-// TODO enable big screens
 
-TipChange(20)
 CalculateTip()

@@ -12,12 +12,41 @@ const perPersonTipP = document.getElementById('per-person-tip-total')
 const perPersonTotalP = document.getElementById('per-person-total-amount')
 
 
-let tipPercent = 20
+let newTipPercent = 20
+let currentTipPercent = 20
 let peopleNum = 1
 let billAmount = 0
 
+// remove btn-highlight class from all buttons and a
+function ChangeTipPercent(newTipPercent, currentTipPercent){
+    if (currentTipPercent !== newTipPercent){
+        percent5Button.classList.remove('btn-highlight')
+        percent10Button.classList.remove('btn-highlight')
+        percent15Button.classList.remove('btn-highlight')
+        percent20Button.classList.remove('btn-highlight')
+        percent25Button.classList.remove('btn-highlight')
+        switch (newTipPercent){
+            case 5:
+                percent5Button.classList.add('btn-highlight')
+                break
+            case 10:
+                percent10Button.classList.add('btn-highlight')
+                break
+            case 15:
+                percent15Button.classList.add('btn-highlight')
+                break
+            case 20:
+                percent20Button.classList.add('btn-highlight')
+                break
+            case 25:
+                percent25Button.classList.add('btn-highlight')
+                break
+        }
+    }
+}
+
 function CalculateTip(){
-    let tipDecimal = tipPercent * .01
+    let tipDecimal = newTipPercent * .01
     let tipAmount = eval(billAmountInput.value * tipDecimal)
     
     let tipPerPerson = tipAmount / peopleNum;
@@ -31,6 +60,9 @@ function CalculateTip(){
 
     perPersonTipP.innerText = `$${tipPerPerson}`
     perPersonTotalP.innerText = `$${totalPerPerson}`
+
+    ChangeTipPercent(newTipPercent, currentTipPercent)
+    currentTipPercent = newTipPercent
 }
 
 function BillAmountAdded(billAmountNum){
@@ -48,17 +80,18 @@ function PeopleAdded (peopleNumInput){
     CalculateTip()
 }
 
-// TODO #4 add function to change tip percent button highlight and add function to percent button listener
 
-percent5Button.addEventListener('click', function() {tipPercent = 5; CalculateTip()})
-percent10Button.addEventListener('click', function() {tipPercent = 10; CalculateTip()})
-percent15Button.addEventListener('click', function() {tipPercent = 15; CalculateTip()})
-percent25Button.addEventListener('click', function() {tipPercent = 25; CalculateTip()})
-percent20Button.addEventListener('click', function() {tipPercent = 20; CalculateTip()})
-customPercentInput.addEventListener('keyup', function(){tipPercent = (customPercentInput.value); CalculateTip()})
+// TODO #4 add function to change tip percent button btn-highlight and add function to percent button listener
+
+percent5Button.addEventListener('click', function() {newTipPercent = 5; CalculateTip()})
+percent10Button.addEventListener('click', function() {newTipPercent = 10; CalculateTip()})
+percent15Button.addEventListener('click', function() {newTipPercent = 15; CalculateTip()})
+percent25Button.addEventListener('click', function() {newTipPercent = 25; CalculateTip()})
+percent20Button.addEventListener('click', function() {newTipPercent = 20; CalculateTip()})
+customPercentInput.addEventListener('keyup', function(){newTipPercent = (customPercentInput.value); CalculateTip()})
 peopleAmountInput.addEventListener('keyup', function(){ PeopleAdded(peopleAmountInput.value)})
 billAmountInput.addEventListener('keyup', function() {BillAmountAdded(billAmountInput.value)})
-resetButton.addEventListener('click', function() {  tipPercent = 20;
+resetButton.addEventListener('click', function() {  newTipPercent = 20;
                                                     billAmountInput.value = ""
                                                     billAmount = 0; 
                                                     peopleAmountInput.value = ""

@@ -43,7 +43,7 @@ main{
 }
 
 main input{
-    width: 98%;
+    width: 92%;
     margin: 0 auto;
     margin-top: .5em;
     border: none;
@@ -52,7 +52,7 @@ main input{
     text-align: right;
     font-size: xx-large;
     line-height: 0;
-    padding: 0;
+    padding-right: 10px;
 }
 
 p.heading{

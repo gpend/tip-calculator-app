@@ -17,9 +17,11 @@ body{
 
 
 
-.container-buttonstuff{
+.container-buttonStuff{
     display: flex;
     flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .buttons{
@@ -57,6 +59,7 @@ main input{
 
 p.heading{
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 .container-buttons{

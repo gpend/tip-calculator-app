@@ -129,7 +129,7 @@ p.heading{
     width: 60%;
 }
 
-@media (min-width: 300px){
+@media (min-width: 700px){
     .container-buttonstuff{
         margin: 1em 1em;
         width: 50%;
